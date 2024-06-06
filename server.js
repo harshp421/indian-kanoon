@@ -22,14 +22,7 @@ app.get('/proxy', async(req, res) => {
         console.error('Error occurred:', error);
         res.status(500).send('An error occurred while fetching data');
       } else {
-        parser.parseString(body, (err, result) => {
-          if (err) {
-            console.error('Error occurred:', err);
-            res.status(500).send('An error occurred while parsing data');
-          } else {
-            res.json(result);
-          }
-        });
+       res.send(body);
       }
     });
   });
