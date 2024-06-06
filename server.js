@@ -33,6 +33,10 @@ app.get('/proxy', async(req, res) => {
       }
     });
   });
+
+  app.get('/',(req,res)=>{
+    res.send('Welcome to Indian Kanoon API');
+  })
 app.listen(port,()=>{
     console.log(`Server started on port ${port}`);
 });
