@@ -17,14 +17,9 @@ app.get('/proxy', async(req, res) => {
     console.log('Query:', req.query);
     // https://indiankanoon.org/feeds/search/Sec 60 sortby:mostrecent  doctypes:judgments/
     const url = `https://indiankanoon.org/feeds/search/${query} sortby:${sort} doctypes:${q==='true '?"judgments":""} /`;
-    request(url, (error, response, body) => {
-      if (error) {
-        console.error('Error occurred:', error);
-        res.status(500).send('An error occurred while fetching data');
-      } else {
-       res.send(body);
-      }
-    });
+    const responce = await fetch(url);
+    const data = await responce.text();
+    res.send(data);
   });
 
   app.get('/',(req,res)=>{
