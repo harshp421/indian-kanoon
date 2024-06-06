@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000;
 const app = express();
 app.use(cors());
 
-app.use('/proxy', async(req, res) => {
+app.get('/proxy', async(req, res) => {
     const query = req.query.search;
     const q=req.query.q;
     const sort=req.query.sort;
