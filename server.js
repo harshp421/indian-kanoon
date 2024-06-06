@@ -8,7 +8,7 @@ const parser = new xml2js.Parser();
 const port = process.env.PORT || 3000;
 
 const app = express();
-app.use(cors({origin: true, credentials: true}));
+app.use(cors());
 
 app.use('/proxy', async(req, res) => {
     const query = req.query.search;
